@@ -12,9 +12,18 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
+                   @role('admin|Super Admin')
+                   <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    {{ __('Dashboard') }}
+                </x-nav-link>
+                   @endrole
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                   @role('Super Admin')
+                   <x-nav-link :href="route('super.users.index')" :active="request()->routeIs('super.users.index')">
+                    {{ __('Utilisateur') }}
+                </x-nav-link>
+                   @endrole
                 </div>
             </div>
 
