@@ -16,10 +16,14 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+/*
+Route::view('/{any}','dashboard')
+->where('any','.*')
+->name('dashboard');
+*/
 Route::get('/', function () {
     return view('Gift');
-});
+})->name('gift');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -12,6 +12,13 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+
+                    <x-nav-link :href="route('gift')" :active="request()->routeIs('gift')">
+                     {{ __('Home') }}
+                 </x-nav-link>
+
+                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                    @role('admin|Super Admin')
                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                     {{ __('Dashboard') }}
@@ -25,6 +32,7 @@
                 </x-nav-link>
                    @endrole
                 </div>
+
             </div>
 
             <!-- Settings Dropdown -->

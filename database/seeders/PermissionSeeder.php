@@ -13,11 +13,12 @@ class PermissionSeeder extends Seeder
      */
     public function run(): void
     {
-        Permission::create(['name'=>'delete-user']);
-        Permission::create(['name'=>'role-permission-user']);
-        Permission::create(['name'=>'create-event']);
-        Permission::create(['name'=>'edit-event']);
-        Permission::create(['name'=>'show-event']);
-        Permission::create(['name'=>'delete-event']);
+        Permission::create(['name'=>'role']);
+        Permission::create(['name'=>'revoke_roles_permissions']);
+        Permission::create(['name'=>'permission']);
+        Permission::create(['name'=>'update_role_permission']);
+        Permission::create(['name'=>'create_permission_roles']);
+        Permission::create(['name'=>'delete']);
+        Permission::create(['name'=>'show']);
     }
 }
