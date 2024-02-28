@@ -21,10 +21,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
 Route::prefix('gift')->name('gift.')->group(function(){
     Route::resource('/categorie',CategorieController::class);
     Route::resource('/salle',SalleController::class);
-    Route::resource('/organisateur',OrganisateurController::class);
+    Route::resource('/organisateur',OrganisateurController::class)->except(['create','show']);
     Route::resource('/evenement',EvenementController::class);
 
 });

@@ -1,6 +1,11 @@
 import { createRouter, createWebHistory} from "vue-router";
 const routes=[
     {
+        path:'/dashboard',
+        component:()=>import('../../Components/home.vue')
+
+    },
+    {
         path:'/dashboard/evenement',
         component:()=>import('../../Components/Evenement/index.vue')
 
@@ -16,6 +21,10 @@ const routes=[
     {
         path:'/dashboard/organisateur',
         component:()=>import('../../Components/Organisateur/index.vue')
+    },
+    {
+        path:'/dashboard/organisateur/new',
+        component:()=>import('../../Components/Organisateur/new.vue')
     }
 
 ]

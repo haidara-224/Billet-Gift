@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OrganisationControllerWeb;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
@@ -16,11 +17,11 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-/*
-Route::view('/{any}','dashboard')
+
+Route::view('dashboard/{any?}','dashboard')
 ->where('any','.*')
 ->name('dashboard');
-*/
+
 Route::get('/', function () {
     return view('Gift');
 })->name('gift');
@@ -49,5 +50,10 @@ Route::middleware(['auth','role:Super Admin'])->name('super.')->prefix('super')-
     route::delete('/roles/{role}/permission/{permission}',[RoleController::class,'revokePermission'])->name('permission.revoke');
 
 });
+Route::prefix('Billet-gift')->name('Bg.')->group(function(){
+    Route::resource('/organisation',OrganisationControllerWeb::class)->except(['edit','update','store','create','destroy']);
+
+});
+
 
 require __DIR__.'/auth.php';
